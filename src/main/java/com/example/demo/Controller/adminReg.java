@@ -24,9 +24,13 @@ public class adminReg {
     }
     
     @PostMapping("/register")
-    public String postMethodName(@RequestBody Admin admin) {
+    public String registerMethodName(@RequestBody Admin admin) {
         adminService.createAdmin(admin);
         return "admin added";
     }
     
+    @PostMapping("/login")
+    public String loginMethodName(@RequestBody Admin admin) {
+        return adminService.verify(admin);
+    }
 }
